@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Websocket</title>
+</head>
+<body>
+  <h1>Echo Test</h1>
+  <input type="text" id="text">
+  <button id="send">Send</button>
+  <p id="receive"></p>
+  <script>
+    const socket = new WebSocket('ws://echo.websocket.org/')
+    const receive = document.getElementById('receive')
+    const sendBtn = document.getElementById('send')
+
+    socket.addEventListener('open', function () {
+      console.log('websocket open')
+      receive.innerHTML = 'Connected'
+    })
+    socket.addEventListener('close', function () {
+      console.log('websocket close')
+      receive.innerHTML = 'Disconnected'
+    })
+    socket.addEventListener('message', function (event) {
+      console.log(event.data)
+      receive.innerHTML = event.data
+    })
+    
+    sendBtn.addEventListener('click', function () {
+      const text = document.getElementById('text').value
+      socket.send(text)
+    })
+  </script>
+</body>
+</html>
+
+
+
+
+
+
+
+
+
