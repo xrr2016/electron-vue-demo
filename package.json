@@ -1,0 +1,29 @@
+{
+  "name": "websocket-tetris",
+  "version": "0.1.0",
+  "description": "",
+  "main": "server.js",
+  "dependencies": {
+    "nodejs-websocket": "^1.7.1"
+  },
+  "devDependencies": {
+    "nodemon": "^1.12.0"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node server.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/xrr2016/websocket-tetris.git"
+  },
+  "keywords": [
+    "websocket"
+  ],
+  "author": "xrr2016",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/xrr2016/websocket-tetris/issues"
+  },
+  "homepage": "https://github.com/xrr2016/websocket-tetris#readme"
+}

@@ -12,7 +12,7 @@
   <button id="send">Send</button>
   <p id="receive"></p>
   <script>
-    const socket = new WebSocket('ws://echo.websocket.org/')
+    const socket = new WebSocket('ws://localhost:8000/')
     const receive = document.getElementById('receive')
     const sendBtn = document.getElementById('send')
 
