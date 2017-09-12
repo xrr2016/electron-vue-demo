@@ -5,34 +5,42 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
   <title>Websocket</title>
+  <style></style>
 </head>
 <body>
-  <h1>Echo Test</h1>
+  <h1>Chat Room</h1>
   <input type="text" id="text">
   <button id="send">Send</button>
-  <p id="receive"></p>
+  <section class="messages"></section>
   <script>
     const socket = new WebSocket('ws://localhost:8000/')
-    const receive = document.getElementById('receive')
+    const messages = document.querySelector('.messages')
     const sendBtn = document.getElementById('send')
+    
+    const showMessage = function (text) {
+      const msg = document.createElement('p')  
+      msg.innerHTML = text
+      messages.appendChild(msg)
+    }
 
     socket.addEventListener('open', function () {
       console.log('websocket open')
-      receive.innerHTML = 'Connected'
+      sendBtn.addEventListener('click', function () {
+        const text = document.getElementById('text').value
+        if (text) {
+          socket.send(text)
+        }
+      })
     })
+
     socket.addEventListener('close', function () {
       console.log('websocket close')
-      receive.innerHTML = 'Disconnected'
     })
+
     socket.addEventListener('message', function (event) {
-      console.log(event.data)
-      receive.innerHTML = event.data
+      showMessage(event.data)
     })
     
-    sendBtn.addEventListener('click', function () {
-      const text = document.getElementById('text').value
-      socket.send(text)
-    })
   </script>
 </body>
 </html>
