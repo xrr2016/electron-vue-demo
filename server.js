@@ -12,14 +12,26 @@ const broadcast = function (server, msg) {
 const server = ws.createServer(function (conn) {
 	clientCount++
 	conn.nickname = 'user' + clientCount
-	broadcast(server, `${conn.nickname} comes in.`)
+	const msg = {
+		type: 'enter',
+		data: `${conn.nickname} comes in.`
+	}
+	broadcast(server, JSON.stringify(msg))
   console.log(clientCount)
-	conn.on("text", function (msg) {
-	  broadcast(server, msg)
+	conn.on("text", function (text) {
+	  const msg = {
+			type: 'message',
+			data: text
+		}
+	  broadcast(server, JSON.stringify(msg))
 	})
 
 	conn.on("close", function (code, reason) {
-	  broadcast(server, `${conn.nickname} left.`)
+		const msg = {
+			type: 'leave',
+			data: `${conn.nickname} left.`
+		}
+	  broadcast(server, JSON.stringify(msg))
 	})
 	conn.on("error", function (err) {
 		console.log("Error", err)
