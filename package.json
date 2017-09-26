@@ -10,7 +10,9 @@
     "test": "ng test",
     "lint": "ng lint",
     "e2e": "ng e2e",
-    "electron-build": "ng build --prod  && electron ."
+    "electron-build": "ng build --prod  && electron .",
+    "electron-win": "electron-packager . --platform=win32",
+    "electron-darwin": "electron-packager . --platform=darwin"
   },
   "private": true,
   "dependencies": {
@@ -23,7 +25,10 @@
     "@angular/platform-browser": "^4.2.4",
     "@angular/platform-browser-dynamic": "^4.2.4",
     "@angular/router": "^4.2.4",
+    "angular-svg-round-progressbar": "^1.1.0",
     "core-js": "^2.4.1",
+    "electron-packager": "^9.1.0",
+    "global": "^4.3.2",
     "rxjs": "^5.4.2",
     "zone.js": "^0.8.14"
   },
