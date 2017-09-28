@@ -1,14 +1,17 @@
 {
-  "name": "task",
+  "name": "task-timing",
   "version": "0.0.0",
   "license": "MIT",
+  "main": "main.ts",
   "scripts": {
     "ng": "ng",
     "start": "ng serve",
     "build": "ng build",
     "test": "ng test",
     "lint": "ng lint",
-    "e2e": "ng e2e"
+    "e2e": "ng e2e",
+    "electron": "electron .",
+    "electron-build": "ng build --prod && electron ."
   },
   "private": true,
   "dependencies": {
@@ -23,7 +26,7 @@
     "@angular/router": "^4.2.4",
     "core-js": "^2.4.1",
     "ng-zorro-antd": "^0.5.2",
-    "rxjs": "^5.4.2",
+    "rxjs": "^5.4.3",
     "zone.js": "^0.8.14"
   },
   "devDependencies": {
@@ -34,6 +37,8 @@
     "@types/jasminewd2": "~2.0.2",
     "@types/node": "~6.0.60",
     "codelyzer": "~3.1.1",
+    "electron": "^1.7.8",
+    "electron-packager": "^9.1.0",
     "jasmine-core": "~2.6.2",
     "jasmine-spec-reporter": "~4.1.0",
     "karma": "~1.7.0",
