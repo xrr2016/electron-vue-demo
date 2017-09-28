@@ -1,12 +1,5 @@
-<h1>test</h1>
-<nz-progress [ngModel]="_percent" [nzType]="'circle'"></nz-progress>
-<nz-button-group>
-  <button nz-button (click)="decline()" [nzType]="'ghost'"><i class="anticon anticon-minus"></i></button><button nz-button [nzType]="'ghost'" (click)="increase()"><i class="anticon anticon-plus"></i></button>
-</nz-button-group>
-<div class="controls-wrapper">
-  <label>Seconds</label>
-  <input class="input" placeholder="number of seconds" type="text"
-    [(ngModel)]="max" (keydown)="reset()">
-  <button *ngIf="currentVal <= 0" (click)="start()">Start</button>
-  <button *ngIf="!isFinished" (click)="finish()">Finish</button>
+<div class="app">
+  <button class="add-btn" nz-button nzType="primary">
+    <span>新增任务</span>
+  </button>
 </div>
