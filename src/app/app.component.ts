@@ -13,12 +13,12 @@ import 'rxjs/add/operator/do';
 })
 export class AppComponent {
 
-  max     = 1;
-  current = 0;
+  max     = null
+  current = 0
 
   start() {
     const interval = Observable.interval(100);
-    
+
     interval
       .takeWhile(_ => !this.isFinished )
       .do(i => this.current += 0.1)
