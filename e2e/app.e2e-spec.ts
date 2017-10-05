@@ -1,6 +1,6 @@
 import { AppPage } from './app.po';
 
-describe('task App', () => {
+describe('angular-electron App', () => {
   let page: AppPage;
 
   beforeEach(() => {
