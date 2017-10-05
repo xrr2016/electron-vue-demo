@@ -2,14 +2,15 @@
   "name": "angular-electron",
   "version": "0.0.0",
   "license": "MIT",
-  "main": "main.js",
+  "main": "main.ts",
   "scripts": {
     "ng": "ng",
-    "start": "ng serve",
+    "start": "ng serve -o",
     "build": "ng build",
     "test": "ng test",
     "lint": "ng lint",
     "e2e": "ng e2e",
+    "dev": "electron .",
     "electron-build": "ng build --prod && electron ."
   },
   "private": true,

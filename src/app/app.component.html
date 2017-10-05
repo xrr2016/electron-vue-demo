@@ -1,37 +1,53 @@
-<main class="content">
-        
-    <h1>Electron Timer</h1>
-
+<main class="container">
+    <nav>
+      <div class="nav-wrapper">
+        <a href="#" class="brand-logo center">计时任务</a>
+      </div>
+    </nav>
     <div class="progress-wrapper" *ngIf="maxVal">
-
         <div class="text" *ngIf="!isFinished">
           {{ max - current | number: '1.1-1' }}
         </div>
-        
+
         <div class="text" *ngIf="isFinished">
             ding!
             <audio src="assets/chime.mp3" autoplay></audio>
         </div>
-        
+
         <round-progress
                 [max]="maxVal"
                 [current]="currentVal"
                 [radius]="100"
                 [stroke]="25">
         </round-progress>
-        
+
     </div>
 
-    <div class="controls-wrapper">
-            <div>
-              <label>Seconds</label>
-              <input class="input" placeholder="number of seconds" type="text" 
-              [(ngModel)]="max"
-              (keydown)="reset()">
-            </div>
-            
-        <button class="button is-info" *ngIf="currentVal <= 0" (click)="start()">Start</button>
-        <button class="button is-danger" *ngIf="!isFinished" (click)="finish()">Finish</button>
+    <div class="row controls-wrapper">
+      <div class="col s12">
+        <div class="input-field col s6">
+          <input type="text" class="timepicker00" id="startTime">
+          <label for="startTime">开始时间</label>
+        </div>
+
+        <div class="input-field col s6">
+          <input type="text" class="timepicker01" id="endTime">
+          <label for="endTime">结束时间</label>
+        </div>
+
+        <div class="input-field col s12">
+          <input id="todo" type="text" class="validate">
+          <label for="todo">要做的事</label>
+        </div>
+      </div>
+
+        <label>Seconds</label>
+        <input class="input" placeholder="number of seconds" type="text"
+          [(ngModel)]="max"
+          (keydown)="reset()">
+
+        <button class="waves-effect waves-light btn" *ngIf="currentVal <= 0" (click)="start()">Start</button>
+        <button class="waves-effect waves-light btn" *ngIf="!isFinished" (click)="finish()">Finish</button>
     </div>
 
 

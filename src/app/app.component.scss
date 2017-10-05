@@ -1,9 +1,7 @@
-.content { 
-  width: 500px;
-  height: 500px;
-  text-align: center;
-  padding: 50px;
+.container {
+  width: 100%;
   margin: auto;
+  text-align: center;
 }
 .progress-wrapper {
   position: relative;
@@ -25,8 +23,8 @@
 
 }
 
-round-progress { 
-  margin: auto;
+round-progress {
+  margin: 0 auto;
 }
 
 .controls-wrapper {
@@ -34,7 +32,7 @@ round-progress {
   margin: auto;
 }
 
-.input { 
+.input {
   text-align: center;
   margin: auto;
   max-width: 250px;
