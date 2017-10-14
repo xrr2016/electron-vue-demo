@@ -1,6 +1,7 @@
+.nav-wrapper {
+  padding-left: 25px;
+}
 .container {
-  width: 100%;
-  margin: auto;
   text-align: center;
   overflow: hidden;
 }
@@ -11,7 +12,7 @@
 
   .text {
     position: absolute;
-    color: #9B9B9B;
+    color: #9b9b9b;
     font-weight: 100;
     line-height: 1;
 
@@ -21,7 +22,6 @@
     transform: translateY(-50%) translateX(-50%);
     font-size: 26px;
   }
-
 }
 
 round-progress {
@@ -39,4 +39,15 @@ round-progress {
   max-width: 250px;
   display: block;
   margin-bottom: 10px;
+}
+
+.control-btn {
+  position: absolute;
+  width: 100%;
+  height: 50px;
+  max-width: 300px;
+  bottom: 20px;
+  left: 50%;
+  transform: translateX(-50%);
+  font-size: 2em;
 }
