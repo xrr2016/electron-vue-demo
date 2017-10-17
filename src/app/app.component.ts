@@ -11,35 +11,31 @@ import 'rxjs/add/operator/do'
   styleUrls: ['./app.component.scss']
 })
 export class AppComponent {
-  max = null
-  current = 0
-
+  todo = ''
+  time = null
+  maxTime = this.time ? this.time * 60 * 1000 : 100
+  curTime = 100
+  
   start() {
-    const interval = Observable.interval(100)
-
+    this.curTime = 0
+    const interval = Observable.interval(1000)
     interval
       .takeWhile(_ => !this.isFinished)
-      .do(i => (this.current += 0.1))
-      .subscribe() 
-  }
-
-  finish() {
-    this.current = this.max
+      .do(i => {
+        this.curTime += 1000
+      })
+      .subscribe()
   }
 
   reset() {
-    this.current = 0
+    this.curTime = 0
   }
 
-  get maxVal() {
-    return isNaN(this.max) || this.max < 0.1 ? 0.1 : this.max
-  }
-
-  get currentVal() {
-    return isNaN(this.current) || this.current < 0 ? 0 : this.current
+  get isStarted() {
+    return this.curTime > 0
   }
 
   get isFinished() {
-    return this.currentVal >= this.maxVal
+    return this.time && this.curTime >= this.maxTime
   }
 }
